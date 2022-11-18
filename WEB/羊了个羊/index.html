@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- MNJWQYZONB2G23A= -->
+        <script>
+               document.onkeydown = function() {
+                var e = window.event || arguments[0];
+                if (e.keyCode == 123) {
+                    return false;
+                } else if ((e.ctrlKey) && (e.shiftKey) && (e.keyCode == 73)) {
+                    return false;
+                } else if ((e.ctrlKey) && (e.keyCode == 85)) {
+                    return false;
+                } else if ((e.ctrlKey) && (e.keyCode == 83)) {
+                    return false;
+                }
+            }
+                // 屏蔽鼠标右键
+                document.oncontextmenu = function() {
+                    return false;
+                }
+        </script>
+    </head>
+    <body>
+        <h1>
+            你能找到flag吗?
+        </h1>
+    </body>
+</html>

