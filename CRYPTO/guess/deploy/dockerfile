@@ -1,0 +1,9 @@
+FROM golang:1.19-alpine
+
+WORKDIR /guess
+COPY . /guess
+
+RUN go build .
+
+EXPOSE 1234
+ENTRYPOINT ["./guess"]
