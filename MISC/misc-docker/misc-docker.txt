@@ -1,0 +1,7 @@
+docker pull san3xian/alpine:zsctf-2022-11
+
+or
+
+docker pull i.sanxian.tech/san3xian/alpine:zsctf-2022-11
+
+ps: 第二条命令与第一条效果一致，仅起国内加速效果
